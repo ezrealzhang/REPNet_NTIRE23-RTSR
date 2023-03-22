@@ -1,0 +1,3 @@
+# write your config file here
+python demo/runtime_demo.py --submission-id 1 --model-name repnet  --scale 2 --fp16
+python demo/sr_demo.py --submission-id 1 --model-name repnet --checkpoint demo/model_zoo/repnet_x2.pth --scale 2 --lr-dir ./testset/LR2/ --save-sr --fp16
