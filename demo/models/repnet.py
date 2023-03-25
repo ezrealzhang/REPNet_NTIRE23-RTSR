@@ -3,10 +3,10 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-
 class repnet(nn.Module):
-    def __init__(self,upscale=2):
+    def __init__(self,upscale=3):
         super(repnet, self).__init__()
+
 
         self.upscale = upscale
         num_feat = 32
@@ -23,7 +23,7 @@ class repnet(nn.Module):
         self.body = nn.ModuleList()
         # the first conv
 
-        self.body.append(nn.Conv2d(3*2*down_scale, num_feat, 3, 1, 1))
+        self.body.append(nn.Conv2d(3 * down_scale * down_scale, num_feat, 3, 1, 1)) 
 
         activation = nn.LeakyReLU(negative_slope=0.1, inplace=True)
         self.body.append(activation)
